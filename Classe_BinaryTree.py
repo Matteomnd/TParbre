@@ -46,7 +46,7 @@ class BinaryTree :
             return False
         elif Node.get_value()==val:
             return True
-        return self.belongs(Node.get_left(),val) or self.belongs(Node.get_right(),Node.get_value()) 
+        return self.belongs(Node.get_left(),val) or self.belongs(Node.get_right(),val)
 
 
     def ancestors(self, node,val):
@@ -59,7 +59,17 @@ class BinaryTree :
         elif self.ancestors(Node.get_left(),Node.get_value()) or self.ancestors(Node.get_right(),val ) :# On parcourt l'ensemble des noeuds de l'arbre comme pour belongs
             print(node)
 
-    def
+    def descendant(self,node,val):
+        if node == None :
+            return False
+        if val == Node.get_value():
+            self.printValues(Node.get_left()) #affichage de tous les noeuds de gauche
+            self.printValues(Node.get_right()) #affichage de tous les noeuds de droite
+            return True
+        else :
+            return self.descendant(Node.get_left(),val) or self.descendant(Node.get_right(),val)
+
+    def prefixe(selfs):
 
 
 
@@ -90,6 +100,7 @@ if __name__ == '__main__':
     noeud19.set_left(noeud18)
     noeud19.set_right(noeud21)
 
-    arbre_binaire.isRoot(12)
+    print(arbre_binaire.isRoot(12))
+    print(arbre_binaire.descendant(12,5))
 
 
